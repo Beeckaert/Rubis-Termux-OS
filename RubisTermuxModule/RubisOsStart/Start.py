@@ -7,22 +7,22 @@
 # Rubis Module
 
 # Init
-
-from ..RubisOSInit.init import 
+from ..RubisOSInit import init
 
 # Main Function
 
 def RubisOsPreload(RubisOsRequest, ActionRequest):
-    if(RubisOsRequest == "LoadPrint"):
-        if(ActionRequest == "RootRunAPP"):
-            RubisOSInterface("RootDisplay")
+    if(RubisOsRequest == "RunRootAPP"):
+        if(ActionRequest == "RunAPP"):
+            init.Display.RubisOsInterface("RootDisplay")
 
 def RubisOsUpdate(RubisOsRequest, ActionRequest):
-    if(RubisOsRequest == "NavigationUpdate"):
-        if(ActionRequest == "InputRequest"):
+    if(RubisOsRequest == "RunAPP"):
+        if(ActionRequest == "RootAPP"):
+            init.NavigationSheel.RubisOsInputNavigation("Root")
 
-
-def RubisOsapp(RubisOsRequest, ActionRequest):
-    if(RubisOsRequest == "Run"):
-        if(ActionRequest == "OpenRootAPP"):
-            RubisOSPreload("LoadPrint", "RootRunAPP")
+def RubisOsRunapp(Preloder, updater):
+    if(Preloder == "RunAPP"):
+        if(updater == "RootAPP"):
+            init.Start.RubisOsPreload("RunRootAPP", "RunAPP")
+            init.Start.RubisOsUpdate("RunAPP","RootAPP")

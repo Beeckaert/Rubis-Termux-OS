@@ -16,28 +16,16 @@ BodyFooter ="None"
 
 # Variable Display
 
-Header = f"""
+Header = """
 
     • ═ ═ ═══ • ═══ ═ ═ •
 
-        {HeaderTitle}
+        RUBIS TERMUX OS
 
     • ═ ═ ═══ • ═══ ═ ═ •
     
 
-        {APPVersion}
-
-"""
-
-Body = f"""
-
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
-
-      {BodyContent}
-
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
-
-      {BodyFooter}
+         V:-0.0.0.0.1
 
 """
 
@@ -49,11 +37,45 @@ Flooter = """
 
 """
 
+BodyRoot = """
+
+     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+
+     1/: Crer une session
+
+     2/: Option
+
+     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+
+      q/: Exit app
+
+"""
+
+BodyCrerSession = """
+
+     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+
+     Pseudo: *non Fournie
+
+     Mot de Passe: *non Founie
+
+     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+
+     r/:Return q/: Exit app
+
+"""
+
 # Main Function
 
-def RubisOsTemplateInterface():
-    print(Header, Body, Flooter)
+def RubisOsTemplateInterface(RubisOsBody):
+    if(RubisOsBody == "BodyRoot"):
+        print(Header, BodyRoot, Flooter)
+    elif(RubisOsBody == "CrerSession"):
+        print(Header, BodyCrerSession, Flooter)
+
 
 def RubisOsInterface(RubisOsIdDisplay):
     if(RubisOsIdDisplay == "RootDisplay"):
-        RubisOsTemplateInterface()
+        RubisOsTemplateInterface("BodyRoot")
+    elif(RubisOsIdDisplay == "CrerSessionDysplay"):
+        RubisOsTemplateInterface("CrerSession")

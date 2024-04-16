@@ -4,22 +4,31 @@
 
 # Import
 
-from ..RubisOSInit.init import RubisOSInterface
+# Init
+
+from ..RubisOSInit import init
+
+# MAin Variable 
 
 # Main Function
 
+def RubisOsRooterNavigation(RubisOsRooter):
+    if(RubisOsRooter == "creerSession"):
+        init.Display.RubisOsInterface("CrerSessionDysplay")
+
 def RubisOsInputNavigation(RubisOsParentPage):
     BoolMainMenu = True
+    MainInput = "Root:>"
     while(BoolMainMenu == True):
         if(RubisOsParentPage == "Root"):
-            MenuStartInput = input("Root;>:")
+            MenuStartInput = input(MainInput)
             if(MenuStartInput == "1"):
-                
+                init.MainProcess.RubisOsClearProcess()
+                MainInput = "CrerSession:>"
+                init.NavigationSheel.RubisOsRooterNavigation("creerSession")
             elif(MenuStartInput =="2"):
-                AutoClearMenuProcess("DisplayMain_StatMenu", "2")
+                init.MainProcess.RubisOsClearProcess()
             elif(MenuStartInput == "q"):
-                AutoClearMenuProcess("DisplayExitApp", "q")
+                init.MainProcess.RubisOsClearProcess()
                 quit()
-        elif(IdPage == "creerSession"):
-            MenuStartInput = input("Crer une session;>:")
-            AutoClearMenuProcess("DisplayMain_CrerSession", "ClavierOutput")
+        

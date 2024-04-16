@@ -2,10 +2,12 @@
 
 # -*- coding: utf-8 -*-
 
-# Root Import
+#import
 
-from.RubisTermuxModule.RubisOSInit.init import Start
+import RubisTermuxModule
+import RubisTermuxModule.RubisOsStart
+import RubisTermuxModule.RubisOsStart.Start
 
-# Run Launcher
 
-Start()
+RubisTermuxModule.RubisOsStart.Start.RubisOsRunapp("RunAPP", "RootAPP")
+
