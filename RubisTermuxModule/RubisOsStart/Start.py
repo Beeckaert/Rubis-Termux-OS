@@ -14,7 +14,7 @@ from ..RubisOSInit import init
 def RubisOsPreload(RubisOsRequest, ActionRequest):
     if(RubisOsRequest == "RunRootAPP"):
         if(ActionRequest == "RunAPP"):
-            init.Display.RubisOsInterface("RootDisplay")
+            init.Display.RubisOsInterface("RootDisplay", "none")
 
 def RubisOsUpdate(RubisOsRequest, ActionRequest):
     if(RubisOsRequest == "RunAPP"):

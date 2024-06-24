@@ -16,6 +16,10 @@ BodyFooter ="None"
 
 # Variable Display
 
+DefaultValue =""
+
+
+
 Header = """
 
     • ═ ═ ═══ • ═══ ═ ═ •
@@ -67,15 +71,38 @@ BodyCrerSession = """
 
 # Main Function
 
-def RubisOsTemplateInterface(RubisOsBody):
-    if(RubisOsBody == "BodyRoot"):
-        print(Header, BodyRoot, Flooter)
-    elif(RubisOsBody == "CrerSession"):
-        print(Header, BodyCrerSession, Flooter)
+def RubisOsTemplateInterface(RubisOsBody, RubisOsDynamicValue):
+    if(RubisOsDynamicValue == "none"):
+        if(RubisOsBody == "BodyRoot"):
+            print(Header, BodyRoot, Flooter)
+        elif(RubisOsBody == "CrerSession"):
+            print(Header, BodyCrerSession, Flooter)
+    else:
+        if(RubisOsBody == "PseudoDefini"):
+            BodyCrerSessionPseudoDefini = f"""
+
+     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+
+     Pseudo: {RubisOsDynamicValue}
+
+     Mot de Passe: *non Founie
+
+     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+
+     r/:Return q/: Exit app
+
+"""
+            print(Header, BodyCrerSessionPseudoDefini, Flooter)
 
 
-def RubisOsInterface(RubisOsIdDisplay):
-    if(RubisOsIdDisplay == "RootDisplay"):
-        RubisOsTemplateInterface("BodyRoot")
-    elif(RubisOsIdDisplay == "CrerSessionDysplay"):
-        RubisOsTemplateInterface("CrerSession")
+def RubisOsInterface(RubisOsIdDisplay, RubisOsDynamicValue):
+    if(RubisOsDynamicValue == "none"):
+        if(RubisOsIdDisplay == "RootDisplay"):
+            RubisOsTemplateInterface("BodyRoot", "none")
+        elif(RubisOsIdDisplay == "CrerSessionDisplay", "none"):
+            RubisOsTemplateInterface("CrerSession", "none")
+        elif(RubisOsIdDisplay == "PseudoDefini", "none"):
+            RubisOsTemplateInterface("PseudoDefini", "none")
+    else:
+        if(RubisOsIdDisplay == "PseudoDefini"):
+            RubisOsTemplateInterface("PseudoDefini", RubisOsDynamicValue)
