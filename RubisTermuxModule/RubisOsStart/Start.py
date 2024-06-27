@@ -11,18 +11,16 @@ from ..RubisOSInit import init
 
 # Main Function
 
-def RubisOsPreload(RubisOsRequest, ActionRequest):
-    if(RubisOsRequest == "RunRootAPP"):
-        if(ActionRequest == "RunAPP"):
-            init.Display.RubisOsInterface("RootDisplay", "none")
+def RubisOsPreload(RubisRequest, RubisResponce):
+    if(RubisRequest == "StartAPP"):
+        if(RubisResponce == "Init"):
+            init.Display.RubisOsInterface("StartAPP", "Default"),
 
 def RubisOsUpdate(RubisOsRequest, ActionRequest):
     if(RubisOsRequest == "RunAPP"):
         if(ActionRequest == "RootAPP"):
             init.NavigationSheel.RubisOsInputNavigation("Root")
 
-def RubisOsRunapp(Preloder, updater):
-    if(Preloder == "RunAPP"):
-        if(updater == "RootAPP"):
-            init.Start.RubisOsPreload("RunRootAPP", "RunAPP")
-            init.Start.RubisOsUpdate("RunAPP","RootAPP")
+def RubisStart(RubisPowerStatue):
+    if(RubisPowerStatue == "ON"):
+        RubisOsPreload("StartAPP", "Init")

@@ -9,5 +9,5 @@ import RubisTermuxModule.RubisOsStart
 import RubisTermuxModule.RubisOsStart.Start
 
 
-RubisTermuxModule.RubisOsStart.Start.RubisOsRunapp("RunAPP", "RootAPP")
+RubisTermuxModule.RubisOsStart.Start.RubisStart("ON")
 

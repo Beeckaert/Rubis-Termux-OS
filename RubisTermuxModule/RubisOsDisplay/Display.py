@@ -5,31 +5,40 @@
 # Import Rubis Module
 
 # Variable Dynamique
-HeaderTitle ="Rubis Termux os"
+
+# Header
+HeaderTitle ="RUBIS TERMUX OS"
 APPVersion ="V:-0.0.0.0.1"
+
+# body
+
+ContentBody = """
+
+    1/:  créer session
+
+    2/: Option
+
+"""
 
 PseudoTemp = "Non Fournie*"
 PasswordTemp = "Non Fournie*"
 
-BodyContent ="None"
-BodyFooter ="None"
+WidjetBody = "P: précédent • q: quitter"
 
 # Variable Display
 
-DefaultValue =""
+# Header / Flooter
 
-
-
-Header = """
+Header = f"""
 
     • ═ ═ ═══ • ═══ ═ ═ •
 
-        RUBIS TERMUX OS
+        {HeaderTitle}
 
     • ═ ═ ═══ • ═══ ═ ═ •
     
 
-         V:-0.0.0.0.1
+        {APPVersion}
 
 """
 
@@ -41,68 +50,28 @@ Flooter = """
 
 """
 
-BodyRoot = """
+# Body
+
+Body = f"""
 
      ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
 
-     1/: Crer une session
-
-     2/: Option
+     {ContentBody}
 
      ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
 
-      q/: Exit app
-
-"""
-
-BodyCrerSession = """
-
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
-
-     Pseudo: *non Fournie
-
-     Mot de Passe: *non Founie
-
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
-
-     r/:Return q/: Exit app
+      {WidjetBody}
 
 """
 
 # Main Function
 
-def RubisOsTemplateInterface(RubisOsBody, RubisOsDynamicValue):
-    if(RubisOsDynamicValue == "none"):
-        if(RubisOsBody == "BodyRoot"):
-            print(Header, BodyRoot, Flooter)
-        elif(RubisOsBody == "CrerSession"):
-            print(Header, BodyCrerSession, Flooter)
-    else:
-        if(RubisOsBody == "PseudoDefini"):
-            BodyCrerSessionPseudoDefini = f"""
-
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
-
-     Pseudo: {RubisOsDynamicValue}
-
-     Mot de Passe: *non Founie
-
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
-
-     r/:Return q/: Exit app
-
-"""
-            print(Header, BodyCrerSessionPseudoDefini, Flooter)
+def RubisOsDisplayInterface(RubisWhileCursor, RubisArg):
+    if(RubisWhileCursor == "StartAPP"):
+        if(RubisArg == "Default"):
+            print(Header, Body, Flooter)
 
 
 def RubisOsInterface(RubisOsIdDisplay, RubisOsDynamicValue):
-    if(RubisOsDynamicValue == "none"):
-        if(RubisOsIdDisplay == "RootDisplay"):
-            RubisOsTemplateInterface("BodyRoot", "none")
-        elif(RubisOsIdDisplay == "CrerSessionDisplay", "none"):
-            RubisOsTemplateInterface("CrerSession", "none")
-        elif(RubisOsIdDisplay == "PseudoDefini", "none"):
-            RubisOsTemplateInterface("PseudoDefini", "none")
-    else:
-        if(RubisOsIdDisplay == "PseudoDefini"):
-            RubisOsTemplateInterface("PseudoDefini", RubisOsDynamicValue)
+    if(RubisOsIdDisplay == "RootDisplay"):
+        RubisOsTemplateInterface("BodyRoot", "none")
