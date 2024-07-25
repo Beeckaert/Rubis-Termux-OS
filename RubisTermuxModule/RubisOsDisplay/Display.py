@@ -2,107 +2,159 @@
 
 # -*- coding: utf-8 -*-
 
-# Import Rubis Module
+# Import
 
-# Variable Dynamique
-HeaderTitle ="Rubis Termux os"
-APPVersion ="V:-0.0.0.0.1"
+from ..RubisOSInit import init
 
-PseudoTemp = "Non Fournie*"
-PasswordTemp = "Non Fournie*"
-
-BodyContent ="None"
-BodyFooter ="None"
-
-# Variable Display
-
-DefaultValue =""
+# Main Function
 
 
-
-Header = """
+def RubisMainDisplay(RubisTermuxSetup):
+    if(RubisTermuxSetup == "SetupHeader"):
+        HeaderTitle ="RUBIS TERMUX OS"
+        APPVersion ="V:-0.0.0.0.1"
+        Header = f"""
 
     • ═ ═ ═══ • ═══ ═ ═ •
 
-        RUBIS TERMUX OS
+        {HeaderTitle}
 
     • ═ ═ ═══ • ═══ ═ ═ •
     
 
-         V:-0.0.0.0.1
+        {APPVersion}
+        """
+        print(Header);
+    elif(RubisTermuxSetup == "SetupBody"):
+        ContentBody = """
+    1/: créer session
 
-"""
+    2/: Option
+    """
+        WidjetBody = """
+        q: quitter
+        """
+        Body = f"""
+    ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
 
-Flooter = """
+    {ContentBody}
 
+    ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+    {WidjetBody}
+    """
+        print(Body)
+    elif(RubisTermuxSetup == "SetupFlooter"):
+        Flooter = """
     • ═ ═ ═══ • ═══ ═ ═ •
 
-    *create By Systeme Rubis
+  *create By Systeme Rubis
+    """
+        print(Flooter);
 
-"""
+def RubisCreateSessionDisplay(RubisTermuxSetup):
+    if(RubisTermuxSetup == "CreeSession:Update"):
+        init.ObjectData.SetupData.PseudoTemp
+        init.ObjectData.SetupData.PasswordTemp
 
-BodyRoot = """
+        ContentBody = f"""
+    Pseudo:  {init.ObjectData.SetupData.PseudoTemp} 
+        
+    Mot De Passe:  {init.ObjectData.SetupData.PasswordTemp}
+    """
+        WidjetBody = """
+        p: précédent
 
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+        q: quitter
+        """
 
-     1/: Crer une session
+        Body = f"""
+    ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
 
-     2/: Option
+    {ContentBody}
 
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+    ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+    {WidjetBody}
+        """
+        print(Body)
 
-      q/: Exit app
+    elif(RubisTermuxSetup == "ConfirmSession"):
+        init.ObjectData.SetupData.PseudoTemp
+        init.ObjectData.SetupData.PasswordTemp
+        ContentBody = f"""
+    Pseudo:  {init.ObjectData.SetupData.PseudoTemp} 
+        
+    Mot De Passe:  {init.ObjectData.SetupData.PasswordTemp}
+    """
+        WidjetBody = """
+        p: précédent
 
-"""
+        q: quitter
+        """
 
-BodyCrerSession = """
+        Body = f"""
+    ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
 
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+    {ContentBody}
 
-     Pseudo: *non Fournie
+         ═══ • ═══
 
-     Mot de Passe: *non Founie
+   v: valider la session
 
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+   x: Recommencer
 
-     r/:Return q/: Exit app
+    ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+    {WidjetBody}
+        """
+        print(Body)
 
-"""
+def RubisOptionRootDisplay(RubisTermuxSetup):
+    if(RubisTermuxSetup == "Option"):
+        WidjetBody = """
+        p: précédent
 
-# Main Function
+        q: quitter
+        """
+        ContentBody = f"""
+    Chemin des packet [RubisTermux]:  
+    {init.ObjectData.SetupData.PathPacket} 
+        
+    Interface [consoles]:  
+    {init.ObjectData.SetupData.InterfaceConsole}
+    """
+        WidjetBody = """
+        p: précédent
 
-def RubisOsTemplateInterface(RubisOsBody, RubisOsDynamicValue):
-    if(RubisOsDynamicValue == "none"):
-        if(RubisOsBody == "BodyRoot"):
-            print(Header, BodyRoot, Flooter)
-        elif(RubisOsBody == "CrerSession"):
-            print(Header, BodyCrerSession, Flooter)
-    else:
-        if(RubisOsBody == "PseudoDefini"):
-            BodyCrerSessionPseudoDefini = f"""
+        q: quitter
+        """
+        Body = f"""
+    ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
 
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+    {ContentBody}
 
-     Pseudo: {RubisOsDynamicValue}
+    ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
+    {WidjetBody}
+        """
+        print(Body)
 
-     Mot de Passe: *non Founie
-
-     ▄▄▄▄▄▄▄▄ • ▄▄▄▄▄▄▄▄
-
-     r/:Return q/: Exit app
-
-"""
-            print(Header, BodyCrerSessionPseudoDefini, Flooter)
-
-
-def RubisOsInterface(RubisOsIdDisplay, RubisOsDynamicValue):
-    if(RubisOsDynamicValue == "none"):
-        if(RubisOsIdDisplay == "RootDisplay"):
-            RubisOsTemplateInterface("BodyRoot", "none")
-        elif(RubisOsIdDisplay == "CrerSessionDisplay", "none"):
-            RubisOsTemplateInterface("CrerSession", "none")
-        elif(RubisOsIdDisplay == "PseudoDefini", "none"):
-            RubisOsTemplateInterface("PseudoDefini", "none")
-    else:
-        if(RubisOsIdDisplay == "PseudoDefini"):
-            RubisOsTemplateInterface("PseudoDefini", RubisOsDynamicValue)
+def RubisLoadInterface(RubisTermuxSetup):
+    if(RubisTermuxSetup == "RunAPP"):
+        init.ObjectData.SetupData.PowerStatue = "ON"
+        RubisMainDisplay("SetupHeader")
+        RubisMainDisplay("SetupBody")
+        RubisMainDisplay("SetupFlooter")
+    elif(RubisTermuxSetup == "CreeSession"):
+        RubisMainDisplay("SetupHeader")
+        RubisCreateSessionDisplay("CreeSession:Update")
+        RubisMainDisplay("SetupFlooter")
+    elif(RubisTermuxSetup == "ConfirmSession"):
+        RubisMainDisplay("SetupHeader")
+        RubisCreateSessionDisplay("ConfirmSession")
+        RubisMainDisplay("SetupFlooter")
+    elif(RubisTermuxSetup == "Option"):
+        RubisMainDisplay("SetupHeader")
+        RubisOptionRootDisplay("Option")
+        RubisMainDisplay("SetupFlooter")
+    elif(RubisTermuxSetup == "Root"):
+        RubisMainDisplay("SetupHeader")
+        RubisMainDisplay("SetupBody")
+        RubisMainDisplay("SetupFlooter")

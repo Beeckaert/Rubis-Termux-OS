@@ -19,3 +19,4 @@ from ..RubisOsStart import Start
 from ..RubisOsDisplay import Display
 from ..RubisOSnavigation import NavigationSheel
 from ..RubisOsSubProcess import MainProcess
+from ..RubisObjectData import ObjectData

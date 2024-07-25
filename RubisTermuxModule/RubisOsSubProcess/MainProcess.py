@@ -9,5 +9,5 @@ from ..RubisOSInit import init
 
 # Main Function
 
-def RubisOsClearProcess():
+def RubisClearProcess():
     init.subprocess.run('clear', shell=True)
